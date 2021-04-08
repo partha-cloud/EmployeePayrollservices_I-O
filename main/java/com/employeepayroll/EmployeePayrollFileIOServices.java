@@ -25,4 +25,10 @@ public class EmployeePayrollFileIOServices {
             e.printStackTrace();
         }
     }
+
+    public void printData() {
+    }
+
+    public long countEntries() {
+    }
 }

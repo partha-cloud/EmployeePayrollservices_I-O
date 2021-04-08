@@ -6,9 +6,8 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.HashMap;
 import java.util.Map;
 import java.nio.file.WatchEvent;
-
-public class EmployeeWatchServices {
-
+public class EmployeeWatchServices
+{
     private final WatchService watcher;
     private final Map<WatchKey, Path> dirWatchers;
 
@@ -91,4 +90,5 @@ public class EmployeeWatchServices {
             }
         }
     }
+
 }

@@ -4,23 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmployeePayrollServices
-{
+public class EmployeePayrollServices {
 
-    public enum IOServices
-    {
+    public enum IOServices {
         CONSOLE_ID, FILE_IO, DB_IO, REST_IO
     }
-    private List<EmployeePayrollData> employeePayrollList;
-    public EmployeePayrollServices() {}
 
-    public EmployeePayrollServices(List<EmployeePayrollData>employeePayrollList)
-    {
+    private List<EmployeePayrollData> employeePayrollList;
+
+    public EmployeePayrollServices() {
+    }
+
+    public EmployeePayrollServices(List<EmployeePayrollData> employeePayrollList) {
         this.employeePayrollList = employeePayrollList;
     }
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         ArrayList<EmployeePayrollData> employeePayrollList = new ArrayList<>();
         EmployeePayrollServices employeePayrollServices = new EmployeePayrollServices(employeePayrollList);
         Scanner consoleInputReader = new Scanner(System.in);
@@ -29,8 +28,7 @@ public class EmployeePayrollServices
     }
 
 
-    public void readEmployeePayrollData(Scanner consoleInputReader)
-    {
+    public void readEmployeePayrollData(Scanner consoleInputReader) {
         System.out.println("Enter Employee ID:");
         int id = consoleInputReader.nextInt();
 
@@ -42,11 +40,21 @@ public class EmployeePayrollServices
         employeePayrollList.add(new EmployeePayrollData(id, name, salary));
     }
 
-    void writeEmployeePayrollData(IOServices ioService)
-    {
+    void writeEmployeePayrollData(IOServices ioService) {
         if (ioService.equals(IOServices.CONSOLE_ID))
             System.out.println("\n Writing Employee Payroll Roaster to Console \n" + employeePayrollList);
-        else  if (ioService.equals(IOServices.FILE_IO))
+        else if (ioService.equals(IOServices.FILE_IO))
             new EmployeePayrollFileIOServices().writeData(employeePayrollList);
+    }
+
+    public void printData(IOServices ioServices) {
+        if (ioServices.equals(IOServices.FILE_IO))
+            new EmployeePayrollFileIOServices().printData();
+    }
+
+    public long countEntries(IOServices ioServices) {
+        if (ioServices.equals(IOServices.FILE_IO))
+            return new EmployeePayrollFileIOServices().countEntries();
+        return 0;
     }
 }
