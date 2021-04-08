@@ -1,9 +1,12 @@
 package com.employeepayroll;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class EmployeePayrollServices {
+public class EmployeePayrollServices
+{
+
     public enum IOServices
     {
         CONSOLE_ID, FILE_IO, DB_IO, REST_IO
@@ -11,7 +14,7 @@ public class EmployeePayrollServices {
     private List<EmployeePayrollData> employeePayrollList;
     public EmployeePayrollServices() {}
 
-    public EmployeePayrollServices(List<EmployeePayrollData>employeePayrollDataList)
+    public EmployeePayrollServices(List<EmployeePayrollData>employeePayrollList)
     {
         this.employeePayrollList = employeePayrollList;
     }
